@@ -580,6 +580,81 @@
 
       </div>
     </section>
+       
+<!-- ═══════════════════ FORMULÁRIO ═══════════════════ -->
+    <section id="contato" class="section-padded section-alt">
+      <div class="container">
+        <p class="section-label">05B — CONTATO</p>
+        <h2 class="section-title">Receba alertas</h2>
+        <p class="section-desc">Cadastre-se para notificações de focos de calor na sua região.</p>
+
+        <div class="form-wrapper">
+          <div id="formSuccess" class="form-success" style="display:none">
+            <div class="success-icon">✅</div>
+            <h3>Cadastro realizado!</h3>
+            <p>Você receberá alertas de queimadas na sua região. Obrigado por apoiar o FireWatch.</p>
+            <button class="btn btn-ghost" id="formReset">Novo cadastro</button>
+          </div>
+
+          <div id="formContainer">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="inputNome">Nome completo *</label>
+                <input type="text" id="inputNome" placeholder="Seu nome">
+                <span class="form-error" id="erroNome"></span>
+              </div>
+              <div class="form-group">
+                <label for="inputEmail">E-mail *</label>
+                <input type="email" id="inputEmail" placeholder="seu@email.com">
+                <span class="form-error" id="erroEmail"></span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="inputEstado">Estado *</label>
+                <select id="inputEstado">
+                  <option value="">Selecione seu estado</option>
+                  <option>Acre</option><option>Alagoas</option><option>Amapá</option>
+                  <option>Amazonas</option><option>Bahia</option><option>Ceará</option>
+                  <option>Distrito Federal</option><option>Espírito Santo</option><option>Goiás</option>
+                  <option>Maranhão</option><option>Mato Grosso</option><option>Mato Grosso do Sul</option>
+                  <option>Minas Gerais</option><option>Pará</option><option>Paraíba</option>
+                  <option>Paraná</option><option>Pernambuco</option><option>Piauí</option>
+                  <option>Rio de Janeiro</option><option>Rio Grande do Norte</option>
+                  <option>Rio Grande do Sul</option><option>Rondônia</option><option>Roraima</option>
+                  <option>Santa Catarina</option><option>São Paulo</option>
+                  <option>Sergipe</option><option>Tocantins</option>
+                </select>
+                <span class="form-error" id="erroEstado"></span>
+              </div>
+              <div class="form-group">
+                <label for="inputTipo">Perfil *</label>
+                <select id="inputTipo">
+                  <option value="">Selecione seu perfil</option>
+                  <option>Morador em área de risco</option>
+                  <option>Produtor rural</option>
+                  <option>Bombeiro / Defesa Civil</option>
+                  <option>Pesquisador / INPE / IBAMA</option>
+                  <option>Jornalista</option>
+                  <option>Outro</option>
+                </select>
+                <span class="form-error" id="erroTipo"></span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputMsg">Mensagem (opcional)</label>
+              <textarea id="inputMsg" rows="4" placeholder="Dúvidas ou informações sobre sua região..."></textarea>
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" id="inputTermos">
+              <label for="inputTermos">Concordo em receber alertas do FireWatch *</label>
+            </div>
+            <span class="form-error" id="erroTermos"></span>
+            <button class="btn btn-primary form-submit-btn" id="formSubmit">🔔 Cadastrar para alertas</button>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- SEÇÃO 6 — APLICAÇÃO -->
     <section id="aplicacao" class="section-padded section-cta">
