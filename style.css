@@ -597,9 +597,49 @@ footer strong {
 .reveal          { opacity:0; transform:translateY(28px); transition:opacity .65s ease,transform .65s ease; }
 .reveal.revealed { opacity:1; transform:translateY(0); }
 
+/* SLIDESHOW */
+.slideshow-wrapper {
+  position: relative; border-radius: 18px; overflow: hidden;
+  border: 1px solid var(--border); background: rgba(10,10,14,.6);
+  box-shadow: 0 0 40px rgba(0,0,0,.5);
+}
+.slideshow { position: relative; overflow: hidden; min-height: 460px; }
+.slide { position: absolute; inset: 0; opacity: 0; transition: opacity .6s ease; display: flex; flex-direction: column; }
+.slide.active { opacity: 1; position: relative; }
+.slide-visual { width: 100%; flex: 1; display: flex; align-items: center; justify-content: center; min-height: 340px; overflow: hidden; }
+.slide-visual svg { width: 100%; height: 100%; display: block; }
+.slide-caption { padding: 1.4rem 2rem; background: rgba(10,10,14,.75); border-top: 1px solid var(--border); }
+.slide-caption h3 { font-family: var(--font-head); color: var(--text); margin-bottom: .3rem; font-size: 1.1rem; }
+.slide-caption p  { color: var(--muted); font-size: .9rem; line-height: 1.5; }
+.slide-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(10,10,14,.8); border: 1px solid var(--border);
+  color: var(--text); font-size: 1.2rem;
+  width: 44px; height: 44px; border-radius: 50%;
+  cursor: pointer; z-index: 10;
+  display: flex; align-items: center; justify-content: center; transition: .2s;
+}
+.slide-btn:hover { background: var(--fire); border-color: var(--fire); }
+.slide-prev { left: 1rem; }
+.slide-next { right: 1rem; }
+.slide-dots { display: flex; justify-content: center; gap: .5rem; padding: .8rem; background: rgba(10,10,14,.5); }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: var(--muted); border: none; cursor: pointer; transition: .2s; }
+.dot.active { background: var(--fire); transform: scale(1.2); }
+@keyframes flameFlicker {
+  0%,100% { transform: scaleY(1)    scaleX(1);    }
+  25%      { transform: scaleY(1.05) scaleX(.97); }
+  50%      { transform: scaleY(.95)  scaleX(1.02); }
+  75%      { transform: scaleY(1.08) scaleX(.95); }
+}
+.svg-flames { animation: flameFlicker 1.5s ease-in-out infinite; transform-origin: center bottom; }
+
 /* RESPONSIVO */
 
 @media (max-width: 768px) {
+
+  .slideshow { min-height: 380px; }
+  .slide-visual { min-height: 260px; }
+  .slide-btn { width: 36px; height: 36px; font-size: 1rem; }
 
     .nav-inner {
         flex-direction: column;
