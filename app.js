@@ -262,3 +262,67 @@
     });
   }
 })();
+
+// 6. FORMULÁRIO — validação JS puro6. FORMULÁRIO — validação JS puro
+
+(function initFormulario() {
+  var submitBtn     = document.getElementById('formSubmit');
+  var resetBtn      = document.getElementById('formReset');
+  var formContainer = document.getElementById('formContainer');
+  var formSuccess   = document.getElementById('formSuccess');
+  if(!submitBtn) return;
+
+  submitBtn.addEventListener('click', function(){
+    if(validarForm()){ formContainer.style.display='none'; formSuccess.style.display='block'; }
+  });
+  if(resetBtn) resetBtn.addEventListener('click', function(){
+    limpar(); formSuccess.style.display='none'; formContainer.style.display='block';
+  });
+
+  ['inputNome','inputEmail','inputEstado','inputTipo'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el){ el.addEventListener('input',  function(){ validarCampo(id); }); }
+    if(el){ el.addEventListener('change', function(){ validarCampo(id); }); }
+  });
+
+  function validarForm() {
+    var ok = true;
+    ['inputNome','inputEmail','inputEstado','inputTipo'].forEach(function(id){
+      if(!validarCampo(id)) ok=false;
+    });
+    var cb = document.getElementById('inputTermos');
+    var et = document.getElementById('erroTermos');
+    if(!cb.checked){ et.textContent='Aceite para receber os alertas.'; ok=false; }
+    else { et.textContent=''; }
+    return ok;
+  }
+
+  function validarCampo(id) {
+    var el = document.getElementById(id); if(!el) return true;
+    var val = el.value.trim();
+    var mapa = { inputNome:'erroNome', inputEmail:'erroEmail', inputEstado:'erroEstado', inputTipo:'erroTipo' };
+    var ee = document.getElementById(mapa[id]); if(!ee) return true;
+
+    if(!val) {
+      ee.textContent = id==='inputNome'  ? 'Nome é obrigatório.'   :
+                       id==='inputEmail' ? 'E-mail é obrigatório.' :
+                       id==='inputEstado'? 'Selecione um estado.'  : 'Selecione um perfil.';
+      el.classList.add('input-error'); return false;
+    }
+    if(id==='inputEmail' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+      ee.textContent='Informe um e-mail válido (ex: nome@email.com).';
+      el.classList.add('input-error'); return false;
+    }
+    ee.textContent=''; el.classList.remove('input-error'); return true;
+  }
+
+  function limpar() {
+    ['inputNome','inputEmail','inputEstado','inputTipo','inputMsg'].forEach(function(id){
+      var el=document.getElementById(id); if(el){ el.value=''; el.classList.remove('input-error'); }
+    });
+    document.getElementById('inputTermos').checked=false;
+    ['erroNome','erroEmail','erroEstado','erroTipo','erroTermos'].forEach(function(id){
+      var el=document.getElementById(id); if(el) el.textContent='';
+    });
+  }
+})();
