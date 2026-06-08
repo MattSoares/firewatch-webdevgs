@@ -146,3 +146,119 @@
 
   startAuto();
 })();
+
+//  5. QUIZ — 10 perguntas dinâmicas
+
+(function initQuiz() {
+  var perguntas = [
+    { q:'Qual satélite da NASA detecta focos de calor no Brasil em tempo real?',
+      opts:['Hubble','MODIS / VIIRS (FIRMS)','James Webb','Landsat 9'], correta:1,
+      exp:'O NASA FIRMS usa MODIS e VIIRS para detectar focos com atualização a cada órbita.' },
+    { q:'Quantos focos de calor o Brasil registrou em 2023, segundo o INPE?',
+      opts:['50 mil','100 mil','220 mil','500 mil'], correta:2,
+      exp:'O INPE registrou mais de 220 mil focos de calor no Brasil em 2023.' },
+    { q:'Qual bioma brasileiro teve mais focos de calor em 2023?',
+      opts:['Cerrado','Pantanal','Amazônia','Mata Atlântica'], correta:2,
+      exp:'A Amazônia concentrou ~95 mil focos em 2023, 43% do total nacional.' },
+    { q:'O sensor DHT22 do FireWatch mede quais variáveis?',
+      opts:['Fumaça e CO₂','Temperatura e umidade','Pressão e vento','Luminosidade'], correta:1,
+      exp:'O DHT22 mede temperatura e umidade relativa do ar.' },
+    { q:'Qual ODS está diretamente relacionado à ação climática?',
+      opts:['ODS 4','ODS 8','ODS 13','ODS 17'], correta:2,
+      exp:'ODS 13 — Ação Climática — visa medidas urgentes contra a mudança do clima.' },
+    { q:'Qual o tempo médio de resposta a incêndio sem monitoramento satelital?',
+      opts:['1 hora','6 horas','24 horas','72 horas'], correta:3,
+      exp:'Sem detecção automática o fogo pode crescer até 72 horas sem resposta.' },
+    { q:'Que % das queimadas no Brasil têm origem humana, segundo o INPE?',
+      opts:['20%','50%','90%','100%'], correta:2,
+      exp:'~90% das queimadas têm origem humana e poderiam ser evitadas.' },
+    { q:'O que é o pipeline de alertas do FireWatch?',
+      opts:['Cano de combate','Satélite → IoT → Python → notificação','App para bombeiros','Irrigação automática'], correta:1,
+      exp:'O pipeline integra dados orbitais, sensores IoT, análise Python e notificações.' },
+    { q:'Qual linguagem é usada para análise preditiva de propagação do fogo?',
+      opts:['Java','C++','Python','Ruby'], correta:2,
+      exp:'Python modela a propagação do fogo com base em vento, umidade e topografia.' },
+    { q:'Qual é o banco de dados de queimadas do INPE?',
+      opts:['PRODES','FIRMS Brasil','BDQueimadas','SipamSAR'], correta:2,
+      exp:'BDQueimadas é a referência nacional do INPE para histórico de focos por bioma e estado.' }
+  ];
+
+  var st = { idx:0, pts:0, resps:[], done:false };
+  var sBtnStart   = document.getElementById('startQuiz');
+  var sBtnNext    = document.getElementById('quizNextBtn');
+  var sBtnRestart = document.getElementById('restartQuiz');
+  var scStart  = document.getElementById('quizStart');
+  var scQ      = document.getElementById('quizQuestion');
+  var scResult = document.getElementById('quizResult');
+
+  sBtnStart.addEventListener('click',   iniciar);
+  sBtnNext.addEventListener('click',    proxima);
+  sBtnRestart.addEventListener('click', iniciar);
+
+  function iniciar() {
+    st.idx=0; st.pts=0; st.resps=[]; st.done=false;
+    scStart.style.display='none'; scResult.style.display='none'; scQ.style.display='block';
+    render();
+  }
+
+  function render() {
+    var p = perguntas[st.idx]; st.done = false;
+    document.getElementById('quizProgressFill').style.width = (st.idx/perguntas.length*100)+'%';
+    document.getElementById('quizCounter').textContent = (st.idx+1)+' / '+perguntas.length;
+    document.getElementById('quizQuestionText').textContent = p.q;
+    var ops = document.getElementById('quizOptions'); ops.innerHTML='';
+    p.opts.forEach(function(o,i){
+      var b = document.createElement('button'); b.className='quiz-opt-btn'; b.textContent=o;
+      b.addEventListener('click', function(){ responder(i,b); });
+      ops.appendChild(b);
+    });
+    sBtnNext.style.display='none';
+  }
+
+  function responder(idx, btn) {
+    if(st.done) return; st.done=true;
+    var p = perguntas[st.idx], ok = idx===p.correta;
+    if(ok) st.pts++;
+    st.resps.push({ pergunta:p.q, escolhida:p.opts[idx], correta:p.opts[p.correta], acertou:ok, exp:p.exp });
+    document.querySelectorAll('.quiz-opt-btn').forEach(function(b,i){
+      b.disabled=true;
+      if(i===p.correta) b.classList.add('correta');
+      else if(i===idx && !ok) b.classList.add('errada');
+    });
+    sBtnNext.textContent = st.idx < perguntas.length-1 ? 'Próxima →' : 'Ver Resultado';
+    sBtnNext.style.display='inline-block';
+  }
+
+  function proxima() {
+    st.idx++;
+    if(st.idx < perguntas.length) { render(); } else { resultado(); }
+  }
+
+  function resultado() {
+    scQ.style.display='none'; scResult.style.display='block';
+    var s=st.pts, t=perguntas.length;
+    document.getElementById('quizScore').textContent = s+' / '+t;
+    var icon,title,msg;
+    if(s===10)    { icon='🏆'; title='Perfeito!';          msg='Você acertou tudo! Especialista em queimadas e tecnologia ambiental.'; }
+    else if(s>=7) { icon='🌟'; title='Muito bem!';         msg='Excelente! Você conhece bem o tema.'; }
+    else if(s>=5) { icon='👍'; title='Bom resultado!';     msg='Boa base! Continue aprendendo sobre monitoramento de queimadas.'; }
+    else          { icon='📚'; title='Continue estudando!'; msg='Explore mais sobre queimadas, biomas e o FireWatch!'; }
+    document.getElementById('quizResultIcon').textContent  = icon;
+    document.getElementById('quizResultTitle').textContent = title;
+    document.getElementById('quizResultMsg').textContent   = msg;
+    var rev = document.getElementById('quizReview'); rev.innerHTML='<h4>Revisão:</h4>';
+    st.resps.forEach(function(r,i){
+      var el = document.createElement('div');
+      el.className = 'review-item '+(r.acertou?'acertou':'errou');
+      el.innerHTML =
+        '<div class="review-num">'+(r.acertou?'✅':'❌')+' '+(i+1)+'</div>'+
+        '<div class="review-body">'+
+          '<p class="review-q">'+r.pergunta+'</p>'+
+          (!r.acertou?'<p class="review-wrong">Sua: '+r.escolhida+'</p>':'')+
+          '<p class="review-right">Certa: '+r.correta+'</p>'+
+          '<p class="review-exp">'+r.exp+'</p>'+
+        '</div>';
+      rev.appendChild(el);
+    });
+  }
+})();
