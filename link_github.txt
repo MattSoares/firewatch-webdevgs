@@ -1,1 +1,1 @@
-https://github.com/enzo-franco/firewatch-gs1.git
+https://github.com/MattSoares/firewatch-webdevgs.git
