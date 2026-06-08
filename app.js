@@ -114,3 +114,35 @@
     });
   }
 })();
+
+// 4. SLIDESHOW — autoplay + dots + swipe
+
+(function initSlideshow() {
+  var slides  = document.querySelectorAll('.slide');
+  var dots    = document.querySelectorAll('.dot');
+  var prevBtn = document.getElementById('slidePrev');
+  var nextBtn = document.getElementById('slideNext');
+  var cur = 0, timer = null;
+
+  function goTo(i) {
+    slides[cur].classList.remove('active'); dots[cur].classList.remove('active');
+    cur = (i + slides.length) % slides.length;
+    slides[cur].classList.add('active');    dots[cur].classList.add('active');
+  }
+  function startAuto() { timer = setInterval(function(){ goTo(cur+1); }, 5000); }
+  function resetAuto() { clearInterval(timer); startAuto(); }
+
+  prevBtn.addEventListener('click', function(){ goTo(cur-1); resetAuto(); });
+  nextBtn.addEventListener('click', function(){ goTo(cur+1); resetAuto(); });
+  dots.forEach(function(d,i){ d.addEventListener('click', function(){ goTo(i); resetAuto(); }); });
+
+  var tx = 0;
+  var el = document.querySelector('.slideshow');
+  el.addEventListener('touchstart', function(e){ tx = e.touches[0].clientX; }, {passive:true});
+  el.addEventListener('touchend',   function(e){
+    var d = tx - e.changedTouches[0].clientX;
+    if(Math.abs(d) > 50){ d > 0 ? goTo(cur+1) : goTo(cur-1); resetAuto(); }
+  }, {passive:true});
+
+  startAuto();
+})();
