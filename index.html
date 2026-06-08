@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FireWatch — Monitoramento de Queimadas</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Bebas+Neue&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="images/Arrioch-Orbz-Orbz-fire.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-inner">
+
+      <div class="nav-logo">
+        🛰 Fire<span>Watch</span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#problema">Problema</a></li>
+        <li><a href="#tecnologia">Tecnologia</a></li>
+        <li><a href="#objetivos">Objetivos</a></li>
+        <li><a href="#publico">Público</a></li>
+        <li><a href="#beneficios">Impacto</a></li>
+        <li><a href="#aplicacao">Aplicação</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+      <div class="container">
+
+        <div class="hero-tag">
+          🔴 SISTEMA ATIVO — NASA FIRMS
+        </div>
+
+        <h1>
+          Queimadas detectadas <span>antes</span> que seja tarde demais
+        </h1>
+
+        <p class="hero-sub">
+          Monitoramento satelital em tempo real com alertas em menos de 3 minutos.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#problema" class="btn btn-primary">Ver no mapa</a>
+          <a href="#tecnologia" class="btn btn-ghost">Como funciona</a>
+        </div>
+
+        <img
+          src="images/hero-satelite.svg"
+          alt="Ilustração de satélite detectando foco de calor na Terra"
+          class="hero-img"
+        >
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <strong>4,2M</strong>
+            <span>hectares perdidos em 2023</span>
+          </div>
+          <div class="stat-item">
+            <strong>72h</strong>
+            <span>delay médio sem satélite</span>
+          </div>
+          <div class="stat-item">
+            <strong>&lt; 3min</strong>
+            <span>nosso tempo de alerta</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SEÇÃO 1 — PROBLEMA -->
+    <section id="problema" class="section-padded">
+      <div class="container">
+
+        <p class="section-label">01 — O PROBLEMA</p>
+        <h2 class="section-title">Urgência</h2>
+
+        <p class="section-desc">
+          O Brasil registra mais de 220 mil focos de calor por ano.
+        </p>
+
+        <p class="section-desc">
+          Sem monitoramento automático, o fogo pode crescer por dias sem resposta.
+        </p>
+
+        <img
+          src="images/mapa-focos.svg"
+          alt="Mapa do Brasil com focos de calor ativos marcados em laranja"
+          class="section-img"
+        >
+
+        <div class="cards-grid">
+
+          <div class="info-card">
+            <div class="card-num">220K</div>
+            <div class="card-unit">focos / ano</div>
+            <p class="card-desc">Registrados pelo INPE em 2023.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="card-num">72h</div>
+            <div class="card-unit">tempo médio de resposta</div>
+            <p class="card-desc">Sem satélite, o fogo cresce por dias.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="card-num">R$48B</div>
+            <div class="card-unit">prejuízo estimado</div>
+            <p class="card-desc">Perdas agropecuárias e ambientais no Brasil.</p>
+          </div>
+
+          <div class="info-card">
+            <div class="card-num">90%</div>
+            <div class="card-unit">são evitáveis</div>
+            <p class="card-desc">A maioria tem origem humana, segundo o INPE.</p>
+          </div>
+
+        </div>
+
+        <div class="ods-row">
+          <span class="ods-badge">ODS 13 — Ação Climática</span>
+          <span class="ods-badge">ODS 11 — Cidades Sustentáveis</span>
+          <span class="ods-badge">ODS 2 — Agricultura</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SEÇÃO 2 — TECNOLOGIA -->
+    <section id="tecnologia" class="section-padded section-alt">
+      <div class="container">
+
+        <p class="section-label">02 — A TECNOLOGIA</p>
+        <h2 class="section-title">Como detectamos o fogo</h2>
+
+        <p class="section-desc">
+          Dados orbitais, sensores IoT e Python integrados num pipeline de alertas.
+        </p>
+
+        <img
+          src="images/arduino-simulador.png"
+          alt="Simulador Arduino com sensor DHT22, MQ-2, LEDs e display LCD do FireWatch v1"
+          class="section-img"
+        >
+
+        <div class="tech-grid">
+
+          <div class="tech-card">
+            <div class="card-icon">🛸</div>
+            <h3 class="card-title">NASA FIRMS</h3>
+            <p class="card-desc">
+              Imagens termais dos satélites MODIS e VIIRS, atualizadas a cada órbita.
+            </p>
+            <span class="tech-tag">Dados orbitais</span>
+          </div>
+
+          <div class="tech-card">
+            <div class="card-icon">🔌</div>
+            <h3 class="card-title">Arduino IoT</h3>
+            <p class="card-desc">
+              Sensores de fumaça (MQ-2) e temperatura (LM35) simulados em campo.
+            </p>
+            <span class="tech-tag">Edge Computing</span>
+          </div>
+
+          <div class="tech-card">
+            <div class="card-icon">🐍</div>
+            <h3 class="card-title">Python Analytics</h3>
+            <p class="card-desc">
+              Modelagem exponencial para prever propagação com base no vento e umidade.
+            </p>
+            <span class="tech-tag">Análise preditiva</span>
+          </div>
+
+          <div class="tech-card">
+            <div class="card-icon">📡</div>
+            <h3 class="card-title">API de Alertas</h3>
+            <p class="card-desc">
+              Notificações automáticas para autoridades e moradores em risco.
+            </p>
+            <span class="tech-tag">Automação</span>
+          </div>
+
+          <div class="tech-card">
+            <div class="card-icon">🗺️</div>
+            <h3 class="card-title">Dashboard Geoespacial</h3>
+            <p class="card-desc">
+              Mapa com focos ativos, histórico e camadas de risco climático.
+            </p>
+            <span class="tech-tag">Visualização</span>
+          </div>
+
+          <div class="tech-card">
+            <div class="card-icon">☁️</div>
+            <h3 class="card-title">INPE Open Data</h3>
+            <p class="card-desc">
+              Banco histórico do INPE para padrões sazonais e validação das detecções.
+            </p>
+            <span class="tech-tag">Dados históricos</span>
+          </div>
+
+        </div>
+
+
+      </div>
+    </section>
+    <section id="objetivos" class="section-padded">
+      <div class="container">
+
+        <p class="section-label">03 — OBJETIVOS</p>
+        <h2 class="section-title">O que o FireWatch entrega</h2>
+
+        <p class="section-desc">
+          Quatro objetivos para reduzir o tempo entre detecção e resposta.
+        </p>
+
+        <div class="obj-grid">
+
+          <div class="obj-item">
+            <span class="obj-num">01</span>
+            <div>
+              <h3 class="obj-title">Detecção precoce automatizada</h3>
+              <p class="card-desc">Identificar focos em até 3 minutos após nova imagem orbital.</p>
+            </div>
+          </div>
+
+          <div class="obj-item">
+            <span class="obj-num">02</span>
+            <div>
+              <h3 class="obj-title">Alertas geolocalizados</h3>
+              <p class="card-desc">Notificar usuários por proximidade ao foco ativo.</p>
+            </div>
+          </div>
+
+          <div class="obj-item">
+            <span class="obj-num">03</span>
+            <div>
+              <h3 class="obj-title">Predição de propagação</h3>
+              <p class="card-desc">Estimar área em risco nas próximas horas com modelagem matemática.</p>
+            </div>
+          </div>
+
+          <div class="obj-item">
+            <span class="obj-num">04</span>
+            <div>
+              <h3 class="obj-title">Relatórios para gestores</h3>
+              <p class="card-desc">Painel histórico por bioma, estado e período.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SEÇÃO 4 — PÚBLICO-ALVO -->
+    <section id="publico" class="section-padded section-alt">
+      <div class="container">
+
+        <p class="section-label">04 — PÚBLICO-ALVO</p>
+        <h2 class="section-title">Quem usa o FireWatch</h2>
+
+        <p class="section-desc">
+          Do morador em área de risco ao gestor público que precisa agir rápido.
+        </p>
+
+        <img
+          src="images/alerta-notificacao.svg"
+          alt="Celular recebendo notificação de alerta de queimada do FireWatch"
+          class="section-img"
+        >
+
+        <div class="pub-grid">
+
+          <div class="pub-card">
+            <div class="card-icon">🚒</div>
+            <h3 class="card-title">Bombeiros</h3>
+            <p class="card-desc">Coordenadas do foco e estimativa de propagação para planejar o combate.</p>
+          </div>
+
+          <div class="pub-card">
+            <div class="card-icon">🌿</div>
+            <h3 class="card-title">IBAMA & INPE</h3>
+            <p class="card-desc">Histórico analítico para políticas públicas e relatórios ambientais.</p>
+          </div>
+
+          <div class="pub-card">
+            <div class="card-icon">🧑‍🌾</div>
+            <h3 class="card-title">Produtores Rurais</h3>
+            <p class="card-desc">Alertas preventivos para proteger propriedade e colheita a tempo.</p>
+          </div>
+
+          <div class="pub-card">
+            <div class="card-icon">🏘️</div>
+            <h3 class="card-title">Moradores de Risco</h3>
+            <p class="card-desc">Notificação no celular quando há foco no raio configurado.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SEÇÃO 5 — BENEFÍCIOS -->
+    <section id="beneficios" class="secao-impacto">
+      <div class="container">
+
+        <div class="impacto-texto">
+
+          <p class="section-label">05 — IMPACTO & BENEFÍCIOS</p>
+          <h2 class="section-title">Cada minuto conta</h2>
+
+          <p class="section-desc">
+            De 72 horas de espera para menos de 45 minutos de resposta.
+          </p>
+
+          <div class="ben-lista">
+
+            <div class="ben-item">
+              <strong>🎯 96× mais rápido</strong>
+              <p>Da detecção até o combate ativo no campo.</p>
+            </div>
+
+            <div class="ben-item">
+              <strong>🌱 70% menos área perdida</strong>
+              <p>Com alerta precoce, o fogo é contido antes de se alastrar.</p>
+            </div>
+
+            <div class="ben-item">
+              <strong>🕐 24/7 sem interrupção</strong>
+              <p>Monitoramento orbital contínuo em qualquer bioma do Brasil.</p>
+            </div>
+
+            <div class="ben-item">
+              <strong>💸 Custo próximo de zero</strong>
+              <p>100% baseado em APIs públicas da NASA e INPE.</p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="impacto-numeros">
+
+          <div class="num-card">
+            <div class="num-val">96×</div>
+            <div class="num-label">Resposta mais rápida</div>
+          </div>
+
+          <div class="num-card">
+            <div class="num-val">70%</div>
+            <div class="num-label">Menos área destruída</div>
+          </div>
+
+          <div class="num-card">
+            <div class="num-val">24/7</div>
+            <div class="num-label">Cobertura contínua</div>
+          </div>
+
+          <div class="num-card">
+            <div class="num-val">Free</div>
+            <div class="num-label">Dados abertos</div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SEÇÃO 6 — APLICAÇÃO -->
+    <section id="aplicacao" class="section-padded section-cta">
+      <div class="container">
+
+        <p class="section-label">06 — APLICAÇÃO</p>
+        <h2 class="section-title">Acesse o sistema</h2>
+
+        <p class="section-desc">
+          Protótipo conceitual de plataforma integrada com painel web e alertas móveis.
+        </p>
+
+        <div class="hero-cta">
+          <a href="https://firms.modaps.eosdis.nasa.gov/map/#d:24hrs;@-52,-14,5z" target="_blank" rel="noopener" class="btn btn-primary">Acessar o mapa</a>
+          <a href="https://firms.modaps.eosdis.nasa.gov/api/" target="_blank" rel="noopener" class="btn btn-ghost">Documentação da API</a>
+        </div>
+
+        <div class="app-pills">
+          <span class="app-pill">🌐 Web App</span>
+          <span class="app-pill">📱 Mobile</span>
+          <span class="app-pill">🔔 SMS Alert</span>
+          <span class="app-pill">🔗 API REST</span>
+          <span class="app-pill">📊 Dashboard Gov</span>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <p>Desenvolvido por <strong>Null Squad</strong> • Global Solution 2026 · FIAP</p>
+    <p>Enzo - 569652 • Gustavo - 568987 • Matheus - 569422 • Renato - 569597 • Julia - 566706</p>
+  </footer>
+
+</body>
+</html>

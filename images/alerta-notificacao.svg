@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="360" viewBox="0 0 600 360">
+  <rect width="600" height="360" fill="#0d0d10"/>
+  <!-- Celular -->
+  <rect x="220" y="40" width="160" height="280" rx="20" fill="#13131a" stroke="#2a2a4a" stroke-width="2"/>
+  <rect x="230" y="55" width="140" height="250" rx="10" fill="#0a0a0f"/>
+  <!-- Notch -->
+  <rect x="270" y="48" width="60" height="10" rx="5" fill="#0a0a0f"/>
+  <!-- Notificação de alerta na tela -->
+  <rect x="238" y="80" width="124" height="70" rx="8" fill="#1a0a0a" stroke="#ff4500" stroke-width="1.5"/>
+  <text x="248" y="100" font-family="monospace" font-size="9" fill="#ff4500">🔴 FIREWATCH</text>
+  <text x="248" y="116" font-family="monospace" font-size="8" fill="#f0ece4">Foco detectado!</text>
+  <text x="248" y="130" font-family="monospace" font-size="8" fill="#7a8694">3,2 km de distância</text>
+  <text x="248" y="142" font-family="monospace" font-size="7" fill="#ff4500">Há 2 minutos</text>
+  <!-- Mapa mini na tela -->
+  <rect x="238" y="160" width="124" height="100" rx="6" fill="#0d1a0d"/>
+  <circle cx="300" cy="210" r="6" fill="#ff4500" opacity="0.9"/>
+  <circle cx="300" cy="210" r="12" fill="none" stroke="#ff4500" stroke-width="1" opacity="0.5"/>
+  <circle cx="285" cy="225" r="4" fill="#2a8aff" opacity="0.8"/>
+  <text x="242" y="255" font-family="monospace" font-size="7" fill="#2a8aaa">VER NO MAPA</text>
+  <!-- Onda de sinal saindo do celular -->
+  <path d="M380 180 Q420 160 420 210 Q420 260 380 240" fill="none" stroke="#ff4500" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.6"/>
+  <path d="M380 160 Q450 130 450 210 Q450 290 380 260" fill="none" stroke="#ff4500" stroke-width="1" stroke-dasharray="4,3" opacity="0.3"/>
+  <!-- Ícone bombeiro -->
+  <circle cx="480" cy="210" r="30" fill="#1a0a0a" stroke="#ff4500" stroke-width="1"/>
+  <text x="464" y="205" font-size="22">🚒</text>
+  <text x="456" y="225" font-family="monospace" font-size="7" fill="#7a8694">NOTIFICADO</text>
+</svg>
