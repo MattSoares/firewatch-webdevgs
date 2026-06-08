@@ -378,6 +378,46 @@
 
       </div>
     </section>
+
+    <!-- ═══════════════════ QUIZ ═══════════════════ -->
+    <section id="quiz" class="section-padded">
+      <div class="container">
+        <p class="section-label">02B — QUIZ</p>
+        <h2 class="section-title">Teste seus conhecimentos</h2>
+        <p class="section-desc">10 perguntas sobre queimadas, biomas e o projeto FireWatch.</p>
+
+        <div class="quiz-box" id="quizBox">
+
+          <div id="quizStart" class="quiz-screen">
+            <div class="quiz-icon">🔥</div>
+            <h3>Você sabe sobre queimadas?</h3>
+            <p>Teste seus conhecimentos. Ao final você verá sua pontuação e as explicações!</p>
+            <button class="btn btn-primary" id="startQuiz">Começar o Quiz</button>
+          </div>
+
+          <div id="quizQuestion" class="quiz-screen" style="display:none">
+            <div class="quiz-progress">
+              <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quizProgressFill"></div></div>
+              <span id="quizCounter">1 / 10</span>
+            </div>
+            <div id="quizQuestionText" class="quiz-q"></div>
+            <div id="quizOptions"      class="quiz-options"></div>
+            <button class="btn btn-primary quiz-next-btn" id="quizNextBtn" style="display:none">Próxima →</button>
+          </div>
+
+          <div id="quizResult" class="quiz-screen" style="display:none">
+            <div class="quiz-icon"  id="quizResultIcon">🏆</div>
+            <h3 id="quizResultTitle">Parabéns!</h3>
+            <div class="quiz-score" id="quizScore">0 / 10</div>
+            <p   id="quizResultMsg"></p>
+            <div id="quizReview"    class="quiz-review"></div>
+            <button class="btn btn-primary" id="restartQuiz">Refazer o Quiz</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    
     <section id="objetivos" class="section-padded">
       <div class="container">
 
