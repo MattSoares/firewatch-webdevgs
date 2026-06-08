@@ -673,9 +673,143 @@ footer strong {
 .review-right { color:#80e890; font-size:.82rem; margin-bottom:.4rem; }
 .review-exp   { color:var(--muted); font-size:.82rem; line-height:1.4; }
 
+/* FORMULÁRIO */
+.form-wrapper {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 2.5rem;
+    max-width: 760px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .4);
+}
+
+.form-row {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.form-group {
+    flex: 1 1 260px;
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    font-size: .85rem;
+    color: var(--muted);
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    background: rgba(255, 255, 255, .04);
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 8px;
+    color: var(--text);
+    padding: .75rem 1rem;
+    font-family: var(--font-body);
+    font-size: .95rem;
+    transition: .2s;
+    outline: none;
+    width: 100%;
+}
+
+.form-group select {
+    cursor: pointer;
+    -webkit-appearance: none;
+}
+
+.form-group select option {
+    background: #1a1a2e;
+    color: var(--text);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--fire);
+    box-shadow: 0 0 0 3px var(--fire-dim);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.input-error {
+    border-color: #c03030 !important;
+}
+
+.form-error {
+    color: #f07070;
+    font-size: .8rem;
+    min-height: 1rem;
+}
+
+.form-check {
+    flex-direction: row !important;
+    align-items: center;
+    gap: .7rem;
+    flex: 1 1 100%;
+}
+
+.form-check input[type=checkbox] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--fire);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.form-check label {
+    font-size: .88rem;
+    color: var(--muted);
+    cursor: pointer;
+}
+
+.form-submit-btn {
+    margin-top: .5rem;
+    width: 100%;
+    font-size: 1rem;
+    padding: 1rem;
+}
+
+.form-success {
+    text-align: center;
+    padding: 2rem 0;
+    animation: fadeIn .4s ease;
+}
+
+.success-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.form-success h3 {
+    font-family: var(--font-head);
+    font-size: 1.8rem;
+    margin-bottom: .8rem;
+    color: #40c060;
+}
+
+.form-success p {
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+}
 /* RESPONSIVO */
 
 @media (max-width: 768px) {
+    .form-wrapper {
+        padding: 1.5rem;
+    }
+    
+    .form-row {
+        flex-direction: column;
+    }
 
   .quiz-box { padding: 1.5rem; }
   .quiz-q   { font-size: 1rem; }
