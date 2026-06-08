@@ -83,3 +83,34 @@
   },{threshold:.12, rootMargin:'0px 0px -40px 0px'});
   targets.forEach(function(el){ obs.observe(el); });
 })();
+
+//  3. THEME SWITCHER — 3 temas + localStorage
+
+(function initThemeSwitcher() {
+  var temas = {
+    fire:   { '--fire':'#ff4500','--fire-dim':'rgba(255,69,0,.15)', '--bg':'#0d0d10','--surface':'#13131a','--border':'rgba(255,69,0,.3)',   '--text':'#f0ece4','--muted':'#7a8694' },
+    ocean:  { '--fire':'#00aaff','--fire-dim':'rgba(0,170,255,.15)','--bg':'#020d1a','--surface':'#061525','--border':'rgba(0,170,255,.3)',   '--text':'#d8eeff','--muted':'#5a8094' },
+    forest: { '--fire':'#40c060','--fire-dim':'rgba(64,192,96,.15)','--bg':'#030a04','--surface':'#081408','--border':'rgba(64,192,96,.3)',   '--text':'#d8f0da','--muted':'#5a8060' }
+  };
+
+  var saved = localStorage.getItem('fw-theme') || 'fire';
+  applyTheme(saved); markBtn(saved);
+
+  document.querySelectorAll('.theme-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var t = btn.getAttribute('data-theme');
+      applyTheme(t); markBtn(t);
+      localStorage.setItem('fw-theme', t);
+    });
+  });
+
+  function applyTheme(name){
+    var v = temas[name]; if(!v) return;
+    Object.keys(v).forEach(function(k){ document.documentElement.style.setProperty(k,v[k]); });
+  }
+  function markBtn(name){
+    document.querySelectorAll('.theme-btn').forEach(function(b){
+      b.classList.toggle('active', b.getAttribute('data-theme')===name);
+    });
+  }
+})();
