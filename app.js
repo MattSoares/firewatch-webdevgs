@@ -61,3 +61,25 @@
   resize(); initStars(); draw();
   window.addEventListener('resize', function(){ resize(); initStars(); });
 })();
+
+// 2. SCROLL REVEAL (IntersectionObserver)
+
+(function initScrollReveal() {
+  var targets = document.querySelectorAll(
+    '.hero-tag,.hero h1,.hero-sub,.hero-cta,.hero-img,.hero-stats,' +
+    '.section-label,.section-title,.section-desc,.section-img,' +
+    '.info-card,.tech-card,.obj-item,.pub-card,' +
+    '.ben-item,.num-card,.ods-badge,.app-pill,.app-pills,' +
+    '.impacto-texto,.impacto-numeros,.slideshow-wrapper,.quiz-box,.form-wrapper'
+  );
+  targets.forEach(function(el,i){
+    el.classList.add('reveal');
+    el.style.transitionDelay = (i%6)*60+'ms';
+  });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('revealed'); obs.unobserve(e.target); }
+    });
+  },{threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  targets.forEach(function(el){ obs.observe(el); });
+})();

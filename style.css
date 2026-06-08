@@ -593,6 +593,10 @@ footer strong {
 .theme-btn:hover  { background: var(--fire-dim); border-color: var(--fire); transform: scale(1.1); }
 .theme-btn.active { background: var(--fire-dim); border-color: var(--fire); box-shadow: 0 0 10px var(--fire-dim); }
 
+/* SCROLL REVEAL */
+.reveal          { opacity:0; transform:translateY(28px); transition:opacity .65s ease,transform .65s ease; }
+.reveal.revealed { opacity:1; transform:translateY(0); }
+
 /* RESPONSIVO */
 
 @media (max-width: 768px) {
