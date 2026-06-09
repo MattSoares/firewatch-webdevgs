@@ -1,0 +1,14 @@
+═══════════════════════════════════════════════════
+  FIREWATCH — Null Squad
+  FIAP Global Solution 2026
+  Web Development — Prof. Daniel Cintra
+═══════════════════════════════════════════════════
+
+  Enzo Franco Rodrigues da Silva     RM: 569652
+  Gustavo Roberto Martins            RM: 568987
+  Matheus Soares Amorim              RM: 569422
+  Renato Mendes Ruiz                 RM: 569597
+  Julia Moreira Rodrigues            RM: 566706
+
+REPOSITÓRIO: https://github.com/MattSoares/firewatch-webdevgs
+═══════════════════════════════════════════════════
